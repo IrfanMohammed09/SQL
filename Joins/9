@@ -1,0 +1,3 @@
+select distinct w.channel channels, a.name account_name 
+from orders o, accounts a, web_events w
+where o.account_id=1001 and o.account_id = a.id and a.id=w.account_id 
