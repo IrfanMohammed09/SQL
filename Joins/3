@@ -1,0 +1,1 @@
+select r.name as region_name, s.name as sales_rep_name, a.name as accounts_name from region r, sales_reps s, accounts a where a.sales_rep_id = s.id and r.id=s.region_id order by a.name
