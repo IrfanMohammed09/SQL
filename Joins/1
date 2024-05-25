@@ -1,0 +1,2 @@
+select a.primary_poc, w.occurred_at as TimeOfEvent, w.channel, a.name from accounts a
+join web_events w on a.id=w.account_id where a.name='Walmart'
