@@ -1,0 +1,5 @@
+select r.name as region_name, s.name as sales_rep_name, a.name as account_name
+from accounts a join sales_reps s  on a.sales_rep_id = s.id
+join region r on r.id=s.region_id
+where r.name='Midwest' and s.name like 'S%'
+order by a.name
