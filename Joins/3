@@ -1,1 +1,7 @@
-select r.name as region_name, s.name as sales_rep_name, a.name as accounts_name from region r, sales_reps s, accounts a where a.sales_rep_id = s.id and r.id=s.region_id order by a.name
+select r.name as region_name, a.name as account_name, 
+case
+when o.total = 0 then (o.total_amt_usd/(o.total+0.01))
+else (o.total_amt_usd/o.total)
+end as unit_price 
+from orders o, accounts a, region r, sales_reps as s
+where o.account_id=a.id and a. sales_rep_id=s.id and r.id=s.region_id
